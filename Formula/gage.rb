@@ -1,25 +1,19 @@
 class Gage < Formula
-  desc "gage command-line frontend (binary: gage)"
+  desc "gage command-line tool: git-backed, age-encrypted secrets and notes (installs the `gage` binary; not a library)"
   homepage "https://github.com/distillerylabs/gage-rs"
-  version "0.1.0"
-  if OS.mac?
-    if Hardware::CPU.arm?
-      url "https://github.com/distillerylabs/gage-rs/releases/download/v0.1.0/gage-cli-aarch64-apple-darwin.tar.xz"
-      sha256 "18a2ea79edd78b4370a0eaa1170069ae7557eb2e5680a2b13a5d38a071e40815"
-    end
-    if Hardware::CPU.intel?
-      url "https://github.com/distillerylabs/gage-rs/releases/download/v0.1.0/gage-cli-x86_64-apple-darwin.tar.xz"
-      sha256 "d60cbc58e1e268312dd035b9355eb61f55cabed937f7127cc192666ea179a78b"
-    end
+  version "0.1.1"
+  if OS.mac? && Hardware::CPU.arm?
+    url "https://github.com/distillerylabs/gage-rs/releases/download/v0.1.1/gage-cli-aarch64-apple-darwin.tar.xz"
+    sha256 "910ce3254ae14ed611d3cf8e98cf15356171c202ce0d2fb3a71b4f654d718664"
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/distillerylabs/gage-rs/releases/download/v0.1.0/gage-cli-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "c126435f7339226a271daf5a7c776f36927d3b9b810846c6c8a0da3794c37bd6"
+      url "https://github.com/distillerylabs/gage-rs/releases/download/v0.1.1/gage-cli-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "dd2ecdfb6825b9f26179b92bb927c5a334e9c2e20f79e0ec26c18343af7897de"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/distillerylabs/gage-rs/releases/download/v0.1.0/gage-cli-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "e5bb188b787b69f8f9d321e6d0290dcdb12bcac527fe41c2f409cf4d0675536a"
+      url "https://github.com/distillerylabs/gage-rs/releases/download/v0.1.1/gage-cli-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "b01e241178546ffd3eb5f223f375d6e2e42fc3ac4efc56bf8924ea25d12a9c97"
     end
   end
   license "Apache-2.0"
@@ -27,7 +21,6 @@ class Gage < Formula
   BINARY_ALIASES = {
     "aarch64-apple-darwin":      {},
     "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin":       {},
     "x86_64-pc-windows-gnu":     {},
     "x86_64-unknown-linux-gnu":  {},
   }.freeze
@@ -49,9 +42,6 @@ class Gage < Formula
 
   def install
     if OS.mac? && Hardware::CPU.arm?
-      bin.install "gage"
-    end
-    if OS.mac? && Hardware::CPU.intel?
       bin.install "gage"
     end
     if OS.linux? && Hardware::CPU.arm?
