@@ -1,19 +1,19 @@
 class Gage < Formula
   desc "gage command-line tool: git-backed, age-encrypted secrets and notes (installs the `gage` binary; not a library)"
   homepage "https://github.com/distillerylabs/gage-rs"
-  version "0.2.0"
+  version "0.3.0"
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/distillerylabs/gage-rs/releases/download/v0.2.0/gage-cli-aarch64-apple-darwin.tar.xz"
-    sha256 "763e284754c3f85c8d7c2ec3d25c11659e2e86378e1187f350f6cf3aaa71767c"
+    url "https://github.com/distillerylabs/gage-rs/releases/download/v0.3.0/gage-cli-aarch64-apple-darwin.tar.xz"
+    sha256 "73c697cafd9081ae93f7549f874475450373f75a5819feecb84786e00032259b"
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/distillerylabs/gage-rs/releases/download/v0.2.0/gage-cli-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "13e904f2e8117c1a4dd5cc98590779df5f9a8d4322c7717155f7322cdfc1ca86"
+      url "https://github.com/distillerylabs/gage-rs/releases/download/v0.3.0/gage-cli-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "3548a28cfec074c0a6eb4fba52a3b20fe7401dc8474dd55de7fe0738207c1c07"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/distillerylabs/gage-rs/releases/download/v0.2.0/gage-cli-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "5961d0fc916e2c0ecf70edb390ed9eb21118bf4d4eb5dafe7ef6875934588854"
+      url "https://github.com/distillerylabs/gage-rs/releases/download/v0.3.0/gage-cli-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "962b3e76065a73fa0f445b2cb50cc4a3f4ea9c4e1737947bf424cd0c2cd0c09a"
     end
   end
   license "Apache-2.0"
